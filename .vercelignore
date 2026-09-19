@@ -1,0 +1,10 @@
+# .gitignore does not govern what the Vercel CLI uploads — this does.
+# Real ID data must never reach a deployment.
+fixtures/*.local.json
+.env
+.env.local
+screens/
+figma-backup/
+*.md
+!README.md
+image.png
