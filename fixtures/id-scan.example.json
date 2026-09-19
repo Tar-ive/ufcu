@@ -1,0 +1,27 @@
+{
+  "label": "Texas DL — synthetic sample",
+  "note": "Entirely made up. This is the fixture the repo ships so the demo runs for anyone. To demo with a real card, create fixtures/id-scan.local.json in this shape — it is gitignored and takes precedence.",
+  "iin": "636015",
+  "fields": {
+    "DCA": "C",
+    "DCB": "NONE",
+    "DCD": "NONE",
+    "DBA": "05142030",
+    "DCS": "RIVERA",
+    "DAC": "JORDAN",
+    "DAD": "LEE",
+    "DBD": "05142024",
+    "DBB": "05141998",
+    "DBC": "2",
+    "DAY": "HAZ",
+    "DAU": "065 IN",
+    "DAG": "2100 GUADALUPE ST APT 5B",
+    "DAI": "AUSTIN",
+    "DAJ": "TX",
+    "DAK": "787050000",
+    "DAQ": "12345678",
+    "DCF": "00000000000000000000",
+    "DCG": "USA",
+    "DDB": "09102021"
+  }
+}

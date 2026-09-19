@@ -8,7 +8,9 @@
     "start": "next start",
     "lint": "next lint",
     "typecheck": "tsc --noEmit",
-    "probe": "node scripts/probe.mjs"
+    "probe": "node scripts/probe.mjs",
+    "autofill": "node scripts/autofill.mts",
+    "test:id": "node scripts/test-id-scan.mts"
   },
   "dependencies": {
     "@ai-sdk/openai": "^4.0.71",

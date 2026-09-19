@@ -28,3 +28,6 @@ yarn-error.log*
 *.tsbuildinfo
 .env*
 !.env.example
+
+# Real ID data for the scan demo — never commit
+fixtures/*.local.json
