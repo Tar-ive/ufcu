@@ -32,6 +32,22 @@ application* questions, in plain language, inside the flow.
   adverse-action notice and free ChexSystems report
 - States plainly that it cannot see any account
 - Answers in the applicant's language
+- **Refuses any fact not in its knowledge base** — founding dates, founders, leadership,
+  branch counts, not just money
+
+### Guardrail probes
+
+Prompt guardrails cannot be verified by reading them. `scripts/probe.mjs` fires nine
+adversarial questions at a running endpoint and asserts on the answers:
+
+```bash
+npm run probe                              # against localhost:3000
+npm run probe -- https://your.vercel.app   # against a deployment
+```
+
+It exists because the assistant confidently answered "UFCU was founded in 1949" (it
+opened in 1936) and invented a group of founders. The first two probes are that exact
+regression. Add a probe whenever you find a new way to make it say something false.
 
 ### Layout
 
@@ -59,9 +75,11 @@ npm run dev
 
 ### ⚠️ Before this talks to a real applicant
 
-`lib/ufcu-knowledge.ts` is **demo-grade**. Its facts were read off screenshots of one
-recorded session and off the redesign prototype — not from UFCU's disclosures. Every
-line needs reconciling against the official Membership & Account Agreement, Fee Schedule
+`lib/ufcu-knowledge.ts` is **mixed provenance**. The history and membership figures are
+sourced from ufcu.org. Everything about the application itself — products, funding caps,
+the $5 par share, courtesy pay, card timelines — was read off screenshots of one recorded
+session and off the redesign prototype, not from UFCU's disclosures. Those lines need
+reconciling against the official Membership & Account Agreement, Fee Schedule
 and Rate Sheet, and should ideally become a retrieval step against those documents
 instead of a hardcoded constant. The provenance note at the top of that file says the
 same thing at more length.

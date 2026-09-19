@@ -1,22 +1,35 @@
 /**
  * Grounding facts for the UFCU account-opening assistant.
  *
- * ⚠️  PROVENANCE — READ BEFORE SHIPPING TO REAL MEMBERS
+ * ⚠️  PROVENANCE — MIXED. READ BEFORE SHIPPING TO REAL MEMBERS
  *
- * Everything here was derived from this repo's research artifacts:
+ * Two tiers of fact live in this file.
+ *
+ * SOURCED — the "History" section and the service-area/membership figures come from
+ * UFCU's own story page (ufcu.org/about/who-we-are/the-ufcu-story). Those are good.
+ * The membership and asset figures are dated (August 31, 2026) and will drift.
+ *
+ * DEMO-GRADE — everything about the application itself (products, funding caps, the
+ * $5 par share, courtesy pay, card timelines, the step sequence) was derived from this
+ * repo's research artifacts:
  *   - `flow.md`          — a single recorded run of the live Narmi-hosted application
  *   - `gap-analysis.md`  — analysis of that run plus external benchmarks
  *   - `figma-brief.md`   — the six-step redesign prototype
  *
- * That means it is DEMO-GRADE. Amounts, fees, product names and timelines were read
- * off screenshots of one session and off a prototype — they are not sourced from
- * UFCU's disclosures, fee schedule or rate sheet. Before this assistant talks to a
- * real applicant, every line below must be reconciled against the official
- * Membership & Account Agreement, Fee Schedule and Rate Sheet, and ideally replaced
- * by a retrieval step against those documents rather than a hardcoded constant.
+ * Those amounts, fees, product names and timelines were read off screenshots of one
+ * session and off a prototype — they are not sourced from UFCU's disclosures, fee
+ * schedule or rate sheet. Before this assistant talks to a real applicant, every one
+ * must be reconciled against the official Membership & Account Agreement, Fee Schedule
+ * and Rate Sheet, and ideally replaced by a retrieval step against those documents
+ * rather than a hardcoded constant.
  *
  * Deliberately absent, and it must stay that way until sourced: interest rates, APYs,
  * dividend rates, and any fee not listed here.
+ *
+ * NOTE ON ADDING FACTS: the assistant treats this file as the entirety of what it
+ * knows about UFCU and refuses anything outside it. That is intentional — it is what
+ * stops it inventing a founding date. Adding an unsourced line here silently converts
+ * a refusal into a confident wrong answer, so cite a source when you add one.
  */
 
 export const UFCU_KNOWLEDGE = `
@@ -28,15 +41,36 @@ insured by the NCUA.
 
 Phone: 512-467-8080. Branch appointments can be scheduled on ufcu.org.
 
+## History  [source: ufcu.org/about/who-we-are/the-ufcu-story]
+
+- **Opened for business May 6, 1936**, with 30 members and $855 in deposits.
+- Obtained its organizational certificate on May 14, 1936, establishing University
+  Federal Credit Union.
+- It began at the University of Texas at Austin, serving people affiliated with the
+  university. **UFCU does not publish the names of individual founders.** If asked who
+  founded it, say it was started by people affiliated with UT Austin in 1936 and that no
+  individual founder is named publicly — do not supply a name, and do not guess.
+- Membership later widened well beyond UT: Texas State University joined in 2013, Austin
+  Community College in 2016.
+
+Today UFCU serves more than 250 universities, associations and employers across Central
+Texas, Houston and Galveston.
+
+These figures are as of August 31, 2026 and drift — give them as "about" and as of that
+date, or point to ufcu.org:
+- About 436,000 members/owners (436,007 on that date)
+- About $4.2 billion in assets ($4.239 billion on that date)
+
 ## Membership eligibility
 
-Anyone who lives, works, worships or attends school in the Central Texas service area
-can join. Affiliation with a participating employer or school (including UT Austin,
-Texas State, Austin Community College, YMCA and Goodwill, among others) also qualifies.
+Anyone who lives, works, worships or attends school in UFCU's service area — Central
+Texas, Houston and Galveston — can join. Affiliation with one of 250+ participating
+employers, schools or associations (including UT Austin, Texas State, Austin Community
+College, YMCA and Goodwill, among others) also qualifies.
 
 Applicants with no local or employer tie can still join: joining the American Consumer
-Council — free — establishes eligibility. Nobody eligible to bank in Central Texas
-should be turned away at this step; if someone cannot find their tie, route them to the
+Council — free — establishes eligibility. Nobody eligible to bank in these areas should
+be turned away at this step; if someone cannot find their tie, route them to the
 Consumer Council option rather than letting them conclude they are ineligible.
 
 Opening a membership requires a $5 par share deposit into a savings account. That $5 is
