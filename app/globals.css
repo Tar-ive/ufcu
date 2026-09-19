@@ -1,0 +1,108 @@
+@import "tailwindcss";
+@import "tw-animate-css";
+
+@custom-variant dark (&:is(.dark *));
+
+/*
+ * UFCU design tokens — the source of truth is the Figma file
+ * `UFCU — It all starts with u` (pg7R89Pl8gxvJDJKQopCiD). See figma-brief.md.
+ * These are mapped onto shadcn/ui's variable names below so that components
+ * pasted in from v0 pick up UFCU branding without being rewritten.
+ */
+:root {
+  --ufcu-primary: #23335d;
+  --ufcu-secondary: #ef6820;
+  --ufcu-accent-darker: #a95408;
+  --ufcu-paper: #f7f4ef;
+  --ufcu-sand: #efeadf;
+  --ufcu-rule: #ddd5c7;
+  --ufcu-ink: #16181c;
+  --ufcu-body: #4a4640;
+  --ufcu-caption: #6b655c;
+  --ufcu-success: #2e6b4f;
+  --ufcu-error: #b42318;
+  --ufcu-error-bg: #fdebea;
+
+  /* shadcn/ui contract */
+  --radius: 0.625rem;
+  --background: var(--ufcu-paper);
+  --foreground: var(--ufcu-ink);
+  --card: #ffffff;
+  --card-foreground: var(--ufcu-ink);
+  --popover: #ffffff;
+  --popover-foreground: var(--ufcu-ink);
+  --primary: var(--ufcu-primary);
+  --primary-foreground: #ffffff;
+  --secondary: var(--ufcu-sand);
+  --secondary-foreground: var(--ufcu-primary);
+  --muted: var(--ufcu-sand);
+  --muted-foreground: var(--ufcu-caption);
+  --accent: var(--ufcu-secondary);
+  --accent-foreground: #ffffff;
+  --destructive: var(--ufcu-error);
+  --border: var(--ufcu-rule);
+  --input: var(--ufcu-rule);
+  --ring: var(--ufcu-primary);
+}
+
+.dark {
+  --background: #14161b;
+  --foreground: #f7f4ef;
+  --card: #1c1f26;
+  --card-foreground: #f7f4ef;
+  --popover: #1c1f26;
+  --popover-foreground: #f7f4ef;
+  --primary: #8fa4d6;
+  --primary-foreground: #14161b;
+  --secondary: #262a33;
+  --secondary-foreground: #f7f4ef;
+  --muted: #262a33;
+  --muted-foreground: #a8a196;
+  --accent: var(--ufcu-secondary);
+  --accent-foreground: #14161b;
+  --destructive: #f0836f;
+  --border: #2f333d;
+  --input: #2f333d;
+  --ring: #8fa4d6;
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+
+  --font-sans: var(--font-archivo), ui-sans-serif, system-ui, sans-serif;
+  --font-display: var(--font-fraunces), ui-serif, Georgia, serif;
+
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
+
+  /* layout-rules.md: one fixed measure is the spine of the system */
+  --spacing-measure: 30rem; /* 480px */
+}
+
+@layer base {
+  * {
+    @apply border-border outline-ring/50;
+  }
+  body {
+    @apply bg-background text-foreground font-sans antialiased;
+  }
+}
