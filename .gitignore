@@ -26,3 +26,5 @@ yarn-debug.log*
 yarn-error.log*
 .turbo
 *.tsbuildinfo
+.env*
+!.env.example
